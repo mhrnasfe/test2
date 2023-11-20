@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Data
@@ -21,10 +22,19 @@ public class Customer {
     private String lastName;
     private String phoneNumber;
     private String email;
-    @Basic
+    @OneToMany
     private List<Address> addresses= new ArrayList<>();
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Customer customer = (Customer) o;
+        return Objects.equals(phoneNumber, customer.phoneNumber) && Objects.equals(email, customer.email);
+    }
 
-//    @ManyToOne
-//    private List<Address> addresses = new ArrayList<>();
+    @Override
+    public int hashCode() {
+        return Objects.hash(phoneNumber, email);
+    }
 }

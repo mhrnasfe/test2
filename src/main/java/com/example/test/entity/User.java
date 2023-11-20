@@ -21,7 +21,7 @@ public class User {
     @Column
     private String username;
     @Column
-    private String phoneNumber;
+    private String mobile;
     @Column
     private String password;
     @Column

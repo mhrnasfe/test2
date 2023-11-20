@@ -8,6 +8,10 @@ public class TestApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(TestApplication.class, args);
+
+        for (int i = 2; i < 10; i = i*i) {
+            System.out.println(i);
+        }
     }
 
 }

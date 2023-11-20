@@ -8,8 +8,8 @@ import org.springframework.http.HttpStatus;
 @AllArgsConstructor
 public class ShopException extends RuntimeException{
 
-    private final Integer code;
-    private final HttpStatus httpStatus;
+    private final String message;
+
 
 
 
